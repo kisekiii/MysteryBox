@@ -3,14 +3,6 @@
 
 Mystery box adalah sebuah konsep di mana seseorang membeli sebuah kotak (fisik atau digital) yang isinya tidak diketahui sebelumnya. Kotak ini biasanya berisi barang-barang kejutan dan bisa bernilai lebih tinggi, setara, atau bahkan lebih rendah dari harga yang dibayar.
 
-
-
-## Screenshots
-
-![App Screenshot](https://i.postimg.cc/NFwyzFwG/Mysterbox-index.png)
-
-
-
 ## Tech Stack
 
 **Client:** Preline.TailwindCSS
@@ -45,6 +37,12 @@ Start the server
 ```
 
 
+
+
+
+## Screenshots
+
+![App Screenshot](https://i.postimg.cc/NFwyzFwG/Mysterbox-index.png)
 
 
 ## License
