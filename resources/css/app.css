@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+@import "../../node_modules/preline/variants.css";
+
+@source "../../node_modules/preline/dist/*.js";
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+
+@theme {
+  --color-blue: oklch(0.707 0.165 254.624);
+  --color-purple: oklch(0.714 0.203 305.504);
+  --color-pink: oklch(0.718 0.202 349.761);
+  --color-orange: oklch(0.75 0.183 55.934);
+  --color-green: oklch(0.792 0.209 151.711);
+  --color-yellow: oklch(0.852 0.199 91.936);
+  --color-gray-dark: oklch(0.13 0.028 261.692);
+  --color-gray: oklch(0.707 0.022 261.325);
+  --color-gray-light: oklch(0.985 0.002 247.839);
+
+  --font-serif: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji";
+  --font-serif: "Merriweather", "serif";
+  --columns: 14;
+
+  --spacing-8xl: 96rem;
+  --spacing-9xl: 128rem;
+
+  --radius-4xl: 2rem;
+}
+
+.mystery-cube {
+  perspective: 800px;
+  position: relative;
+  transition: filter .2s;
+}
+.mystery-cube.selected { filter: drop-shadow(0 0 20px #fff9) brightness(1.1);}
+.mystery-cube .cube {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.mystery-cube .top    { top: 0; left: 0; z-index: 3;}
+.mystery-cube .left   { top: 0; left: 0; z-index: 2;}
+.mystery-cube .right  { top: 0; left: 0; z-index: 2;}
+.mystery-cube .back   { top: 0; left: 0; z-index: 1;}
+.mystery-cube .powerup {
+  position: absolute;
+  width: 65%;
+  left: 17.5%;
+  top: 35%;
+  opacity: 0;
+  z-index: 10;
+  display: none;
+  transition: opacity .5s;
+}
+.mystery-cube.open .top    { transform: translateY(-70px) rotateX(60deg);}
+.mystery-cube.open .left   { transform: translateX(-65px) rotateY(-60deg);}
+.mystery-cube.open .right  { transform: translateX(65px) rotateY(60deg);}
+.mystery-cube.open .powerup { opacity: 1 !important; display: block !important;}
+/* Responsive for cube size (optional) */
+@media (max-width: 600px) {
+  .mystery-cube .top, .mystery-cube .left, .mystery-cube .right { transform: none; }
+  .mystery-cube.open .top    { transform: translateY(-40px) rotateX(60deg);}
+  .mystery-cube.open .left   { transform: translateX(-35px) rotateY(-60deg);}
+  .mystery-cube.open .right  { transform: translateX(35px) rotateY(60deg);}
+}
